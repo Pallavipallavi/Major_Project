@@ -48,10 +48,3 @@ feed_dict_testing = {x: x_batch, y_true: y_test_images}
 result=sess.run(y_pred, feed_dict=feed_dict_testing)
 # result is of this format [probabiliy_of_rose probability_of_sunflower]
 print(result)
-top_k = result[0].argsort()[-len(result[0]):][::-1]
-    
-    for node_id in top_k:
-        congestion_type = label_lines[node_id]
-        score = result[0][node_id]
-        if (score >=0.5):
-            print('%s (score = %.5f)' % (congestion_type, score))
